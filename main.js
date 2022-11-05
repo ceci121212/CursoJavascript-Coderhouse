@@ -6,18 +6,50 @@ let producto = parseInt(
   let seguirComprando = true
   let totalCompra = 0
   let decision
+
+
+const productosArray = []
+
+
+class productoNuevo{
+  constructor(codigo,nombre,precio,disponibles){
+    this.codigo = codigo
+    this.nombre = nombre;
+    this.precio = precio;
+    this.disponibles = disponibles;
+  }
+}
+const pañales = new productoNuevo(1,'Pañales',600,104);
+productosArray.push(pañales);
+const mamadera = new productoNuevo(2,'Mamadera',1000,200);
+productosArray.push(mamadera);
+const cuna = new productoNuevo(3,'Cuna',200,23);
+productosArray.push(cuna);
+const mameluco = new productoNuevo(4,'Mameluco',800,18);
+productosArray.push(mameluco);
+
+console.log(productosArray)
+
+
+
+
   while (seguirComprando === true) {
-    if (producto === 1) {
-      totalCompra = totalCompra + 1000
-    } else if (producto === 2) {
-      totalCompra = totalCompra + 500
-    } else if (producto === 3) {
-      totalCompra = totalCompra + 4000
-    } else if (producto === 4) {
-      totalCompra = totalCompra + 700
+    if (producto === pañales.codigo) {
+      totalCompra = totalCompra + pañales.precio
+      pañales.disponibles = pañales.disponibles - 1
+    } else if (mamadera.codigo) {
+      totalCompra = totalCompra + mamadera.precio
+      mamadera.disponibles = mamadera.disponibles - 1
+    } else if (producto === cuna.codigo) {
+      totalCompra = totalCompra + cuna.precio
+      cuna.disponibles = cuna.disponibles - 1
+    } else if (producto === mameluco.codigo) {
+      totalCompra = totalCompra + mameluco.precio
+      mameluco.disponibles = mameluco.disponibles - 1
     }
-  
-    decision = parseInt(prompt('¿Querés seguir comprano? 1.Si - 2.No'))
+
+
+    decision = parseInt(prompt('¿Querés seguir comprando? 1.Si - 2.No'))
     if (decision === 1) {
       producto = parseInt(
         prompt(
